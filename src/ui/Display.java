@@ -1,4 +1,4 @@
-/**
+package ui; /**
  * A class responsible for the display windows
  *
  * @author Donghan Kim (100382712)
@@ -6,18 +6,22 @@
  */
 
 
+import model.Alert;
+import model.Document;
+import model.Window;
+
 import java.util.ArrayList;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class Display extends Window{
+public class Display extends Window {
     private ArrayList<Window> contents;
     
     /**
-     * Constructor for Display
+     * Constructor for ui.Display
      * 
-     * @param name is the name of the Display
+     * @param name is the name of the ui.Display
      */
     public Display(String name){
         super(name, new int[]{0,0}, new char[Window.DISPLAY_HEIGHT][Window.DISPLAY_WIDTH]);
@@ -25,7 +29,7 @@ public class Display extends Window{
     }
     
     /**
-     * Method to prints out the pixels of the Display
+     * Method to prints out the pixels of the ui.Display
      * 
      * @return void
      */
@@ -40,7 +44,7 @@ public class Display extends Window{
     }
     
     /**
-     * Method that updates the pixels of this Display with its content
+     * Method that updates the pixels of this ui.Display with its content
      * 
      * @return void
      */
@@ -249,7 +253,7 @@ public class Display extends Window{
     /**
      * Method that appends a content of the selected window to the active window
      * 
-     * @param filename is the window with the content 
+     * @param filename is the window with the content
      * @return void
      */
     public void commandAppend(String fileName){

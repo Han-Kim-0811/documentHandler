@@ -1,23 +1,25 @@
-/**
+package model; /**
  * A class responsible for the document windows
  *
  * @author Donghan Kim (100382712)
  * @version 2022-03-09
  */
 
+import model.Window;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Document extends Window{
+public class Document extends Window {
     private String contents;
     
     private static int untitled = 1;
     
     /**
-     * Constructor for Document
+     * Constructor for model.Document
      * 
-     * @param contents is the contents of the Display
+     * @param contents is the contents of the ui.Display
      */
     public Document(String contents){
         super("Untitled " + untitled++, new int[]{getNextPos()[0], getNextPos()[1]}, new char[25][35]);
@@ -26,10 +28,10 @@ public class Document extends Window{
     }
     
     /**
-     * Constructor for Document
+     * Constructor for model.Document
      * 
-     * @param name is the name of the Display
-     * @param contents is the contents of the Display
+     * @param name is the name of the ui.Display
+     * @param contents is the contents of the ui.Display
      */
     public Document(String name, String contents){
         super(name, new int[]{getNextPos()[0], getNextPos()[1]}, new char[25][35]);
@@ -38,9 +40,9 @@ public class Document extends Window{
     }
     
     /**
-     * Constructor for Document
+     * Constructor for model.Document
      * 
-     * @param file is the file that holds all necessary informations for constructing a Document
+     * @param file is the file that holds all necessary informations for constructing a model.Document
      */
     public Document(File file){
         super(file.getName(), new int[]{getNextPos()[0], getNextPos()[1]}, new char[25][35]);
@@ -52,7 +54,7 @@ public class Document extends Window{
     /**
      * Getter for contents 
      * 
-     * @return contents of this Document
+     * @return contents of this model.Document
      */
     public String getContents(){
         return this.contents;
@@ -76,7 +78,7 @@ public class Document extends Window{
     }
     
     /**
-     * Method that updates the pixels of this Document with its content
+     * Method that updates the pixels of this model.Document with its content
      * 
      * @return void
      */

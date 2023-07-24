@@ -1,4 +1,4 @@
-/**
+package ui; /**
  * A program that handles windows and displays it
  *
  * @author Donghan Kim (100382712)
@@ -16,7 +16,7 @@ public class Driver{
      * @return void
      */
     public static void main(String[] args){
-        Display display = new Display("Display");
+        Display display = new Display("ui.Display");
         Scanner scan = new Scanner(System.in);
         boolean quit = false;
         

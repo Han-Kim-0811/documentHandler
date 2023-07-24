@@ -1,3 +1,5 @@
+package model;
+
 /**
  * A class responsible for the alert windows
  *
@@ -5,24 +7,24 @@
  * @version 2022-03-09
  */
 
-public class Alert extends Window{
+public class Alert extends Window {
     private String contents;
     
     private static int untitled = 1;
     
     /**
-     * Constructor for Alert
+     * Constructor for model.Alert
      * 
-     * @param contents is the contents of the Alert
+     * @param contents is the contents of the model.Alert
      */
     public Alert(String contents){
-        super("Alert " + untitled++, new int[]{getNextPos()[0], getNextPos()[1]}, new char[5][35]);
+        super("model.Alert " + untitled++, new int[]{Window.getNextPos()[0], Window.getNextPos()[1]}, new char[5][35]);
         updateNextPos();
         this.contents = contents;
     }
     
     /**
-     * Method that updates the pixels of this Alert with its content
+     * Method that updates the pixels of this model.Alert with its content
      * 
      * @return void
      */

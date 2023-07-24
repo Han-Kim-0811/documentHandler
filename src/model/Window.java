@@ -1,3 +1,5 @@
+package model;
+
 /**
  * An abstract class for all types of windows, including the display
  *
@@ -16,11 +18,11 @@ public abstract class Window{
     private static int[] nextPos = new int[]{3, 6};
     
     /**
-     * Constructor for Window
+     * Constructor for model.Window
      * 
-     * @param name is the name of the Window
-     * @param pos is the position of the Window
-     * @param pixels is the pixels of the Window
+     * @param name is the name of the model.Window
+     * @param pos is the position of the model.Window
+     * @param pixels is the pixels of the model.Window
      */
     public Window(String name, int[] pos, char[][] pixels){
         this.name = name;
@@ -31,7 +33,7 @@ public abstract class Window{
     /**
      * Getter for name
      * 
-     * @return name of this Window
+     * @return name of this model.Window
      */
     public String getName(){
         return this.name;
@@ -40,7 +42,7 @@ public abstract class Window{
     /**
      * Getter for pos
      * 
-     * @return pos of this Window
+     * @return pos of this model.Window
      */
     public int[] getPos(){
         return this.pos;
@@ -61,7 +63,7 @@ public abstract class Window{
     /**
      * Getter for pixels
      * 
-     * @return pixels of this Window
+     * @return pixels of this model.Window
      */
     public char[][] getPixels(){
         return this.pixels;
@@ -80,7 +82,7 @@ public abstract class Window{
     /**
      * Getter for the static variable nextPos
      * 
-     * @return nextPos of Window
+     * @return nextPos of model.Window
      */
     public static int[] getNextPos(){
         return nextPos;
@@ -107,7 +109,7 @@ public abstract class Window{
     }
     
     /**
-     * Method that update the pixels of this Window with its content
+     * Method that update the pixels of this model.Window with its content
      * To be implemented in each subclass
      * 
      * @return void
