@@ -1,22 +1,25 @@
-package ui; /**
- * A program that handles windows and displays it
- *
- * @author Donghan Kim (100382712)
- * @version 2022-03-09
- */
+package ui;
+
+import model.Display;
 
 import java.util.Scanner;
 
+/**
+ * A program that handles documents and displays it as windows.
+ *
+ * @author Han Kim
+ * @version 2023-07-24
+ */
 public class Driver{
     
     /**
-     * Main method
+     * Main method, which reads user input and executes commands.
+     * It will loop until the user inputs the command "quit".
      * 
      * @param args isn't used
-     * @return void
      */
     public static void main(String[] args){
-        Display display = new Display("ui.Display");
+        Display display = new Display("Display");
         Scanner scan = new Scanner(System.in);
         boolean quit = false;
         

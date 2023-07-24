@@ -1,37 +1,27 @@
-package ui; /**
- * A class responsible for the display windows
- *
- * @author Donghan Kim (100382712)
- * @version 2022-03-09
- */
-
-
-import model.Alert;
-import model.Document;
-import model.Window;
+package model;
 
 import java.util.ArrayList;
 import java.io.File;
 import java.io.PrintWriter;
-import java.io.IOException;
 
+/**
+ * A class which represents the main display.
+ */
 public class Display extends Window {
     private ArrayList<Window> contents;
     
     /**
-     * Constructor for ui.Display
+     * Constructor for Display.
      * 
-     * @param name is the name of the ui.Display
+     * @param name is the name of the Display.
      */
     public Display(String name){
         super(name, new int[]{0,0}, new char[Window.DISPLAY_HEIGHT][Window.DISPLAY_WIDTH]);
-        this.contents = new ArrayList<Window>();
+        this.contents = new ArrayList<>();
     }
     
     /**
-     * Method to prints out the pixels of the ui.Display
-     * 
-     * @return void
+     * Method to prints out the pixels of the Display.
      */
     public void print(){
         updatePixel();
@@ -44,9 +34,7 @@ public class Display extends Window {
     }
     
     /**
-     * Method that updates the pixels of this ui.Display with its content
-     * 
-     * @return void
+     * Method that updates the pixels of this Display with its content.
      */
     public void updatePixel(){
         updateBorder();
@@ -56,9 +44,7 @@ public class Display extends Window {
     }
     
     /**
-     * Helper method for updatePixel that update the border of the window
-     * 
-     * @return void
+     * Helper method for updatePixel that update the border of the window.
      */
     private void updateBorder(){
         char[][] p = getPixels();
@@ -91,9 +77,7 @@ public class Display extends Window {
     }
     
     /**
-     * Helper method for updatePixel that update the windows in the display to the pixel
-     * 
-     * @return void
+     * Helper method for updatePixel that update the windows in the display to the pixel.
      */
     private void updateWindow(Window window){
         window.updatePixel();
@@ -114,19 +98,16 @@ public class Display extends Window {
     }
     
     /**
-     * Method that makes a new document window
-     * 
-     * @return void
+     * Method that makes a new document window.
      */
     public void commandNew(){
         contents.add(new Document(""));
     }
     
     /**
-     * Method that opens a document window 
+     * Method that opens a document window.
      * 
-     * @param fileName is the name of the file to open
-     * @return void
+     * @param fileName is the name of the file to open.
      */
     public void commandOpen(String fileName){
         if(fileName.lastIndexOf(".txt") >= 0 && fileName.lastIndexOf(".txt") == fileName.length() - 4){
@@ -142,9 +123,7 @@ public class Display extends Window {
     }
     
     /**
-     * Method that closes the active window 
-     * 
-     * @return void
+     * Method that closes the active window.
      */
     public void commandClose(){
         if(contents.get(contents.size() - 1) instanceof Alert){
@@ -155,10 +134,9 @@ public class Display extends Window {
     }
     
     /**
-     * Method that closes a window with name
+     * Method that closes a window with name.
      * 
-     * @param fileName is the name of the window
-     * @return void
+     * @param fileName is the name of the window.
      */
     public void commandClose(String fileName){
         int index = findIndexOf(fileName);
@@ -170,10 +148,10 @@ public class Display extends Window {
     }
     
     /**
-     * Helper method to find the index of the given window name
+     * Helper method to find the index of the given window name.
      * 
-     * @param fileName is the name of the window
-     * @return index of the window in contents
+     * @param fileName is the name of the window.
+     * @return index of the window in contents.
      */
     private int findIndexOf(String fileName){
         for(int i = 0; i < contents.size(); i++){
@@ -185,11 +163,10 @@ public class Display extends Window {
     }
     
     /**
-     * Method that resizes the active window
+     * Method that resizes the active window.
      * 
-     * @param height is the heigth to resize to 
-     * @param width is the width to resize to 
-     * @return void
+     * @param height is the height to resize to.
+     * @param width is the width to resize to.
      */
     public void commandResize(int height, int width){
         if(contents.get(contents.size() - 1) instanceof Document){
@@ -202,11 +179,10 @@ public class Display extends Window {
     }
     
     /**
-     * Method that moves the active window
+     * Method that moves the active window.
      * 
-     * @param row is the row to move to 
-     * @param col is the col to move to 
-     * @return void
+     * @param row is the row to move to.
+     * @param col is the col to move to.
      */
     public void commandMove(int row, int col){
         if(contents.get(contents.size() - 1) instanceof Document){
@@ -219,11 +195,9 @@ public class Display extends Window {
     }
     
     /**
-     * Method that moves the active window
-     * 
-     * @param row is the row to move to 
-     * @param col is the column to move to 
-     * @return void
+     * Method that selects a window as an active window.
+     *
+     * @param fileName is the name of the window.
      */
     public void commandSelect(String fileName){
         int index = findIndexOf(fileName);
@@ -235,10 +209,9 @@ public class Display extends Window {
     }
     
     /**
-     * Method that writes to the active window
+     * Method that writes to the active window.
      * 
-     * @param content is the content to write to the window 
-     * @return void
+     * @param content is the content to write to the window.
      */
     public void commandWrite(String content){
         if(contents.get(contents.size() - 1) instanceof Document){
@@ -251,10 +224,9 @@ public class Display extends Window {
     }
     
     /**
-     * Method that appends a content of the selected window to the active window
-     * 
-     * @param filename is the window with the content
-     * @return void
+     * Method that appends a content of the selected window to the active window.
+     *
+     * @param fileName is the window with the content.
      */
     public void commandAppend(String fileName){
         int index = findIndexOf(fileName);
@@ -273,9 +245,7 @@ public class Display extends Window {
     }
     
     /**
-     * Method that saves the content of the active window to a txt file
-     * 
-     * @return void
+     * Method that saves the content of the active window to a txt file.
      */
     public void commandSave(){
         try{
@@ -300,10 +270,9 @@ public class Display extends Window {
     }
     
     /**
-     * Method that saves the content of the active window to a txt file
+     * Method that saves the content of the active window to a txt file.
      * 
-     * @param filename is the name of the txt file
-     * @return void
+     * @param fileName is the name of the txt file.
      */
     public void commandSave(String fileName){
         try{
@@ -328,10 +297,9 @@ public class Display extends Window {
     }
     
     /**
-     * Method that makes a new alert window with the given error message
+     * Method that makes a new alert window with the given error message.
      * 
-     * @param errMsg is the error message
-     * @return void
+     * @param errMsg is the error message.
      */
     public void alert(String errMsg){
         contents.add(new Alert(errMsg));

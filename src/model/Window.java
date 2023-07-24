@@ -1,12 +1,8 @@
 package model;
 
 /**
- * An abstract class for all types of windows, including the display
- *
- * @author Donghan Kim (100382712)
- * @version 2022-03-09
+ * An abstract class for all types of windows, including the display.
  */
-
 public abstract class Window{
     private String name;
     private int[] pos;
@@ -18,11 +14,11 @@ public abstract class Window{
     private static int[] nextPos = new int[]{3, 6};
     
     /**
-     * Constructor for model.Window
+     * Constructor for Window.
      * 
-     * @param name is the name of the model.Window
-     * @param pos is the position of the model.Window
-     * @param pixels is the pixels of the model.Window
+     * @param name is the name of the Window.
+     * @param pos is the position of the Window.
+     * @param pixels is the pixels of the Window.
      */
     public Window(String name, int[] pos, char[][] pixels){
         this.name = name;
@@ -31,29 +27,28 @@ public abstract class Window{
     }
     
     /**
-     * Getter for name
+     * Getter for name.
      * 
-     * @return name of this model.Window
+     * @return name of this Window.
      */
     public String getName(){
         return this.name;
     }
     
     /**
-     * Getter for pos
+     * Getter for pos.
      * 
-     * @return pos of this model.Window
+     * @return pos of this Window.
      */
     public int[] getPos(){
         return this.pos;
     }
     
     /**
-     * Setter for pos
+     * Setter for pos.
      * 
-     * @param row is the row to set the Pos
-     * @param col is the column to set the Pos
-     * @return void
+     * @param row is the row to set the Pos.
+     * @param col is the column to set the Pos.
      */
     public void setPos(int row, int col){
         this.pos[0] = row;
@@ -61,38 +56,35 @@ public abstract class Window{
     }
     
     /**
-     * Getter for pixels
+     * Getter for pixels.
      * 
-     * @return pixels of this model.Window
+     * @return pixels of this Window.
      */
     public char[][] getPixels(){
         return this.pixels;
     }
     
     /**
-     * Setter for pixels
+     * Setter for pixels.
      * 
-     * @param pixels is the pixels to set the pixels
-     * @return void
+     * @param pixels is the pixels to set the pixels.
      */
     public void setPixels(char[][] pixels){
         this.pixels = pixels;
     }
     
     /**
-     * Getter for the static variable nextPos
+     * Getter for the static variable nextPos.
      * 
-     * @return nextPos of model.Window
+     * @return nextPos of Window.
      */
     public static int[] getNextPos(){
         return nextPos;
     }
     
     /**
-     * Method, which is sort of a setter for the static variable nextPos
-     * Sets the nextPos to the next nextPos
-     * 
-     * @return void
+     * Method, which updates the static variable nextPos.
+     * Sets the nextPos to the next nextPos.
      */
     public void updateNextPos(){
         nextPos[0] += 5;
@@ -109,10 +101,8 @@ public abstract class Window{
     }
     
     /**
-     * Method that update the pixels of this model.Window with its content
-     * To be implemented in each subclass
-     * 
-     * @return void
+     * Method that update the pixels of this Window with its content.
+     * To be implemented in each subclass.
      */
     public abstract void updatePixel();
 }
